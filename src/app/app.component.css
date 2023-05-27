@@ -1,0 +1,79 @@
+:root {
+  --c-white: #fff;
+  --c-black: #161616;
+  --c-light: #adadad;
+  --c-red: rgb(255, 9, 9);
+  --c-dark: rgba(7, 7, 7, 0.5);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  font-family: "Source Sans Pro", cursive, system-ui, sans-serif;
+  overflow: hidden;
+}
+
+.dragging {
+  padding: 20px 10px;
+  border-bottom: solid 1px #ccc;
+  color: rgba(0, 0, 0, 0.87);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  cursor: move;
+  background: white;
+  font-size: 14px;
+}
+
+div[listDraggable] {
+  width: 500px;
+  border: solid 1px #ccc;
+  min-height: 60px;
+  background: white;
+  border-radius: 4px;
+  overflow: hidden;
+  display: block;
+}
+
+div[listDraggable] > * {
+  padding: 20px 10px;
+  border-bottom: solid 1px #ccc;
+  color: rgba(0, 0, 0, 0.87);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  cursor: move;
+  background: white;
+  font-size: 14px;
+}
+
+.list-drag {
+  transition: transform 0.2s;
+}
+
+.list {
+  margin: 100px auto;
+}
+
+.group > div[listDraggable] {
+  width: 400px;
+  max-width: 100%;
+  margin: 0 25px 25px 0;
+  display: inline-block;
+  vertical-align: top;
+}
