@@ -20,8 +20,15 @@ html {
 
 body {
   height: 100%;
-  font-family: "Source Sans Pro", cursive, system-ui, sans-serif;
+  font-family: sans-serif;
   overflow: hidden;
+}
+
+.group {
+  margin: 50px;
+  display: flex;
+  column-gap: 50px;
+  font-family: sans-serif;
 }
 
 .dragging {
@@ -34,6 +41,7 @@ body {
   justify-content: space-between;
   box-sizing: border-box;
   cursor: move;
+  font-family: sans-serif;
   background: white;
   font-size: 14px;
 }
@@ -45,6 +53,7 @@ div[listDraggable] {
   background: white;
   border-radius: 4px;
   overflow: hidden;
+  font-family: sans-serif;
   display: block;
 }
 
@@ -58,6 +67,7 @@ div[listDraggable] > * {
   justify-content: space-between;
   box-sizing: border-box;
   cursor: move;
+  font-family: sans-serif;
   background: white;
   font-size: 14px;
 }
@@ -67,13 +77,14 @@ div[listDraggable] > * {
 }
 
 .list {
-  margin: 100px auto;
+  margin: 50px 0;
 }
 
 .group > div[listDraggable] {
   width: 400px;
   max-width: 100%;
   margin: 0 25px 25px 0;
+  font-family: sans-serif;
   display: inline-block;
   vertical-align: top;
 }
