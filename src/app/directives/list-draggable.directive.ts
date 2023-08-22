@@ -226,7 +226,6 @@ export class ListDraggableDirective implements OnInit {
     return Array.from(this.host.nativeElement.children) as HTMLElement[];
   }
 
-
   // --- PART 1 ---
   private init() {
     const {
@@ -346,16 +345,31 @@ export class ListDraggableDirective implements OnInit {
    * Gets correct placeholder index based on its translate position
    */
   private getDragPlaceholderIndex(): number {
-    const currentY = this.getTransform(this.dragPlaceholder);
+    const dragPlaceholderCurrentY = this.getTransform(this.dragPlaceholder);
 
     let idx = this.list.indexOf(this.dragPlaceholder);
 
-    if (currentY <= -this.elementSize) {
-      idx = idx - Math.abs(currentY) / this.elementSize;
+    /*
+      whenever the dragPlaceholderCurrentY is equal or less than negative value of elementSize than
+      that means that the drag placeholder has been translated above, its been moved up
+
+      Now to get adjust the index of this trnalsate position is basically we just have to divide
+      dragPlaceholderCurrentY to elementSize, and that is goin to give us number of steps that this placeholder
+      has been translated to. and since we are going up, we have to subtract translateStep to current idx
+    */
+    // UP
+    if (dragPlaceholderCurrentY <= -this.elementSize) {
+      const translateStep =
+        Math.abs(dragPlaceholderCurrentY) / this.elementSize;
+
+      idx = idx - translateStep;
+      console.log('calculated index UP (1)', idx);
     }
 
-    if (currentY >= this.elementSize) {
-      idx = idx + currentY / this.elementSize;
+    // DOWN
+    if (dragPlaceholderCurrentY >= this.elementSize) {
+      idx = idx + dragPlaceholderCurrentY / this.elementSize;
+      console.log('calculated index DOWN (2)', idx);
     }
 
     return idx;
@@ -385,6 +399,13 @@ export class ListDraggableDirective implements OnInit {
   private updateElementPosition(element: HTMLElement, direction: string) {
     const currentY = this.getTransform(element);
 
+    /*
+    whenever element currentY is equal to negative elementSize or its equal to positive elementSize
+    we don't care about translating this element, because we always translate list items just one step at a time
+    based on elementSize. The element currentY translate should not exceed elementSize or
+    it should not be below its negative elementSize
+    */
+
     if (currentY === -this.elementSize) {
       element.style.transform = 'translateY(0px)';
     }
@@ -402,7 +423,10 @@ export class ListDraggableDirective implements OnInit {
 
   private updateDragPlaceholderPosition(direction: string) {
     const currentY = this.getTransform(this.dragPlaceholder);
-
+    /*
+    if current y is greater than zero means that dragPlaceholder has already been translated.
+    In this case we will add or subtract elemetSize to current based on its direction
+    */
     if (Math.abs(currentY) > 0) {
       this.dragPlaceholder.style.transform = `translateY(${
         direction === 'down'
@@ -410,6 +434,10 @@ export class ListDraggableDirective implements OnInit {
           : currentY - this.elementSize
       }px)`;
     } else {
+      /*
+    if current y is zero, that  means dragPlaceholder has not been translted.
+    In this case we will either set positive elementSize or negative based on its direction
+    */
       this.dragPlaceholder.style.transform = `translateY(${
         direction === 'down' ? this.elementSize : -this.elementSize
       }px)`;
