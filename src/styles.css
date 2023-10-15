@@ -1,1 +1,56 @@
 /* You can add global styles to this file, and also import other style files */
+
+:root {
+  --c-white: #fff;
+  --c-black: #161616;
+  --c-light: #adadad;
+  --c-red: rgb(255, 9, 9);
+  --c-dark: rgba(7, 7, 7, 0.5);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  font-family: "Source Sans Pro", cursive, system-ui, sans-serif;
+  overflow: hidden;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 90%;
+  position: relative;
+  margin: 50px;
+  box-sizing: border-box;
+  user-select: none;
+}
+
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 15px;
+}
+
+td.selected {
+  background-color: blue;
+}
+
+.selection {
+  border: 1px solid #2b2ce2;
+  background-color: #2b2be224;
+  position: absolute;
+  z-index: 100;
+  transition: inset 0.1s ease;
+}

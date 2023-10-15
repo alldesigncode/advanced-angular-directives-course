@@ -1,29 +1,3 @@
-:root {
-  --c-white: #fff;
-  --c-black: #161616;
-  --c-light: #adadad;
-  --c-red: rgb(255, 9, 9);
-  --c-dark: rgba(7, 7, 7, 0.5);
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  height: 100%;
-}
-
-body {
-  height: 100%;
-  font-family: sans-serif;
-  overflow: hidden;
-}
-
 .group {
   margin: 50px;
   display: flex;
@@ -46,18 +20,19 @@ body {
   font-size: 14px;
 }
 
-div[listDraggable] {
+div.list {
+  position: relative;
   width: 500px;
   border: solid 1px #ccc;
   min-height: 60px;
   background: white;
-  border-radius: 4px;
+  /* border-radius: 4px; */
   overflow: hidden;
   font-family: sans-serif;
   display: block;
 }
 
-div[listDraggable] > * {
+div.list > *:not(.selection) {
   padding: 20px 10px;
   border-bottom: solid 1px #ccc;
   color: rgba(0, 0, 0, 0.87);
@@ -77,7 +52,7 @@ div[listDraggable] > * {
 }
 
 .list {
-  margin: 50px 0;
+  margin: 50px;
 }
 
 .group > div[listDraggable] {

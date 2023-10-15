@@ -1,4 +1,59 @@
-<div class="group">
+<table selectable (selectionChange)="onTableSelectionChange($event)">
+  <tr>
+    <td>Company</td>
+    <td>Contact</td>
+    <td>Country</td>
+    <td>Address</td>
+  </tr>
+  <tr>
+    <td>Alfreds Futterkiste</td>
+    <td>Maria Anders</td>
+    <td>Germany</td>
+    <td>985 Thiel Vista</td>
+  </tr>
+  <tr>
+    <td>Centro comercial Moctezuma</td>
+    <td>Francisco Chang</td>
+    <td>Mexico</td>
+    <td>33848 Ernestina Field</td>
+  </tr>
+  <tr>
+    <td>Ernst Handel</td>
+    <td>Roland Mendel</td>
+    <td>Austria</td>
+    <td>428 Kris Camp</td>
+  </tr>
+  <tr>
+    <td>Island Trading</td>
+    <td>Helen Bennett</td>
+    <td>UK</td>
+    <td>76758 Schmeler Burg</td>
+  </tr>
+  <tr>
+    <td>Laughing Bacchus Winecellars</td>
+    <td>Yoshi Tannamuri</td>
+    <td>Canada</td>
+    <td>31033 Forest Cove</td>
+  </tr>
+  <tr>
+    <td>Magazzini Alimentari Riuniti</td>
+    <td>Giovanni Rovelli</td>
+    <td>Italy</td>
+    <td>831 Carter Freeway</td>
+  </tr>
+</table>
+
+
+<div selectable (selectionChange)="onListSelectionChange($event)" class="list">
+  <div selectableItem> Plan a birthday party</div>
+  <div selectableItem>Update resume</div>
+  <div selectableItem>Organize files on computer</div>
+  <div selectableItem>Attend a yoga class</div>
+</div>
+
+
+
+<!-- <div class="group">
   <div class="list-1">
     <h1>Todo</h1>
     <div listDraggable class="list" #listOne="listDraggable" [connectedTo]="listTwo">
@@ -31,4 +86,4 @@
   <div listDrag>item 6</div>
   <div listDrag>item 7</div>
   <div listDrag>item 8</div>
-</div>
+</div> -->
