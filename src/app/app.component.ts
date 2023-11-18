@@ -5,14 +5,4 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
-  title = 'advanced-angular-directives';
-
-  onTableSelectionChange(selection) {
-    console.log(selection);
-  }
-
-  onListSelectionChange(selection) {
-    console.log(selection);
-  }
-}
+export class AppComponent {}
