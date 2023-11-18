@@ -1,13 +1,3 @@
-/* You can add global styles to this file, and also import other style files */
-
-:root {
-  --c-white: #fff;
-  --c-black: #161616;
-  --c-light: #adadad;
-  --c-red: rgb(255, 9, 9);
-  --c-dark: rgba(7, 7, 7, 0.5);
-}
-
 *,
 *::before,
 *::after {
